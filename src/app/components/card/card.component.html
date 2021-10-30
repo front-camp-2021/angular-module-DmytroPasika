@@ -1,0 +1,42 @@
+    <div class="card__content">
+      <div class="card__image-container">
+        <img class='card__image' [src]='images[0]' alt="Product" />
+      </div>
+      <div class="card__description">
+        <div class='card__price-and-score'>
+          <div class='card__score'>
+            <button name='scoreButton' class="card__score-button button">
+              <div class="card__container-btn">
+                <span class="card__score-text">
+                  {{rating}}
+                </span>
+                <img src="../../../assets/img/star.svg" alt="score" class='card__score-image-btn' />
+              </div>
+            </button>
+          </div>
+          <div class="card__price">
+            ₴{{price}}
+          </div>
+        </div>
+        <div class='card__description-text'>
+            <span class="card__header">{{title}}</span>
+          <span class='card__text'>{{brand}} - {{category}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card__actions">
+      <button class='card__wishlist-btn button' name="wishlist">
+        <div class="card__container-btn" >
+          <img class="card__heart" src="../../../assets/img/Path.svg" alt='Like' />
+          <div class="card__text-btn" ref={refFavorite}>WISHLIST</div>
+        </div>
+      </button>
+      <button class='card__add-btn button' name="addToCart">
+        <div class="card__container-btn">
+          <img class='card__add-to-cart' src="../../../assets/img/shopping-bag.svg" alt="Shop" 
+          ref={refCartImg} />
+          <div class="card__text-btn" ref={refCart}>ADD TO CART</div>
+        </div>
+      </button>
+    </div>

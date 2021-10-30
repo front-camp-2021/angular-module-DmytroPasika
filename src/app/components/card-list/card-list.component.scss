@@ -1,0 +1,15 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/breakpoints.scss';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (max-width: map-get($breakpoints, md)) {
+    & {
+        justify-content: space-around;
+    }
+}
+}
