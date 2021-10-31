@@ -1,0 +1,40 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/breakpoints.scss';
+
+.filter-container {
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        padding-bottom: 10px;
+      }
+}
+
+::ng-deep {
+      .ngx-slider {
+        .ngx-slider-selection {
+          background: map-get($colors, main-color) !important;
+       }
+       .ngx-slider-pointer {
+        background-color: white !important;
+        -webkit-appearance: none !important;
+        height: 1.3em !important;
+        width: 0.4em !important;
+        background-image: url(../../../assets/img/range-thumb-icon.svg) !important;
+        background-repeat: no-repeat !important;
+        margin-top: 6px !important;
+        pointer-events: auto !important;
+       }
+
+      .ngx-slider-pointer-max {
+        transform: rotate(180deg) !important;
+        margin-top: 4px !important;
+       }
+      .ngx-slider-pointer.ngx-slider-active {
+        outline:0 !important;
+       }
+      .ngx-slider-pointer.ngx-slider-active:after {
+        display: none !important;
+        }
+     }
+ }

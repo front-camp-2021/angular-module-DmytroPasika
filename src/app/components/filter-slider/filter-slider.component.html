@@ -1,1 +1,4 @@
-<p>filter-slider works!</p>
+<div class="filter-container__title">
+    {{title}}
+  </div>
+<ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="logs()"></ngx-slider>

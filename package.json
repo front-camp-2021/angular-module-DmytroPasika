@@ -7,10 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "bd": "json-server --port 3001 --watch server/db.json"
+    "db": "json-server --port 3001 --watch server/db.json"
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.3",
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
@@ -19,8 +20,11 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
+    "detect-it": "^4.0.1",
+    "detect-passive-events": "^2.0.3",
+    "rxjs": "^6.6.7",
+    "rxjs-compat": "^6.6.7",
+    "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

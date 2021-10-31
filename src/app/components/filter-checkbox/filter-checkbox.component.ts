@@ -11,7 +11,6 @@ export class FilterCheckboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(() => console.log(this.items), 400)
   }
 
 }

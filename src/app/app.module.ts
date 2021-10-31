@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
