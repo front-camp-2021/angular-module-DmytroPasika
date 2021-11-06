@@ -26,7 +26,7 @@
     </div>
 
     <div class="card__actions">
-      <button class='card__wishlist-btn button' name="wishlist">
+      <button class='card__wishlist-btn button' name="wishlist" (click)='setFavorite()'>
         <div class="card__container-btn" >
           <img class="card__heart" src="../../../assets/img/Path.svg" alt='Like' />
           <div class="card__text-btn" ref={refFavorite}>WISHLIST</div>

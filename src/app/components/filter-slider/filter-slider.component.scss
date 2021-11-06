@@ -12,6 +12,9 @@
 
 ::ng-deep {
       .ngx-slider {
+        @media (max-width: map-get($breakpoints, lg)) {
+          width: 95% !important;
+        }
         .ngx-slider-selection {
           background: map-get($colors, main-color) !important;
        }

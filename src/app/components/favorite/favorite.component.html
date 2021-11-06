@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-big-button [title]='favorite'></app-big-button>
+<app-card 
+*ngFor='let item of items; let i = index'
+[item]='item'
+>
+</app-card>

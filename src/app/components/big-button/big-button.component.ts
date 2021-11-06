@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/shared/products.service';
 
 @Component({
   selector: 'app-big-button',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./big-button.component.scss']
 })
 export class BigButtonComponent implements OnInit {
+  @Input() title: string = ''
 
-  constructor() { }
+  constructor(private productService: ProductsService) { 
+  }
+  
+  reset(): void {
+    this.productService.reset(this.title)
+  }
 
   ngOnInit(): void {
   }

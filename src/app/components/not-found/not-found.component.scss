@@ -1,0 +1,20 @@
+@import '../../../assets/styles/buttons.scss';
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/breakpoints.scss';
+
+.not-found {
+    &__main-container {
+        display: flex;
+        justify-content: space-around;
+        height: 200px;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__button {
+        padding: 10px 10px;
+        border-radius: 8px;
+        color: map-get($colors, white);
+        background-color: map-get($colors, main-color);
+    }
+}

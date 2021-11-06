@@ -4,6 +4,7 @@ import {
   Input
 } from '@angular/core';
 import { Options } from "@angular-slider/ngx-slider";
+import { ProductsService } from 'src/app/shared/products.service';
 
 @Component({
   selector: 'app-filter-slider',
@@ -13,10 +14,13 @@ import { Options } from "@angular-slider/ngx-slider";
 export class FilterSliderComponent implements OnInit {
   @Input() title: string = ''
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
-  logs(): void {
-    // console.log(this.minValue, this.maxValue)
+  onChange(): void {
+    this.productsService.setPriceFilter({
+      min: this.minValue,
+      max: this.maxValue
+    })
   }
 
   minValue: number = 53;

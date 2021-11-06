@@ -6,8 +6,9 @@
         <li *ngFor="let item of items; let i = index">
             <div class="filter-container__container-checkbox">
                 <label class="filter-container__label">
-                    <input [name]='title.toLowerCase()' type="checkbox" value='value' 
-                    class="filter-container__checkbox"
+                    <input [name]='type' type="checkbox" [value]='item' 
+                    class="filter-container__checkbox" (click)="onClick($event)" 
+                    [checked]="false"
                     />
                     <div class="filter-container__checkbox-custom"></div>
                     <span class="filter-container__value">{{item}}</span>

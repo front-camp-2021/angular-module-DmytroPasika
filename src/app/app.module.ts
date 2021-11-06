@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,21 @@ import { BigButtonComponent } from './components/big-button/big-button.component
 import { FilterSliderComponent } from './components/filter-slider/filter-slider.component';
 import { FilterCheckboxComponent } from './components/filter-checkbox/filter-checkbox.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ItemPageComponent } from './components/item-page/item-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
+
+const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'card', component: CardComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'favorite', component: FavoriteComponent},
+  {path: '**', component: NotFoundComponent},
+]
+
 
 @NgModule({
   declarations: [
@@ -34,13 +50,20 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BigButtonComponent,
     FilterSliderComponent,
     FilterCheckboxComponent,
-    PaginationComponent
+    PaginationComponent,
+    FavoriteComponent,
+    CartComponent,
+    ItemPageComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxSliderModule
+    NgxSliderModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
