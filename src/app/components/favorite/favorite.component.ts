@@ -16,22 +16,18 @@ import { RESET_ALL_FAVORITES } from 'src/helperFn/btn.helper';
 })
 
 export class FavoriteComponent implements OnInit, OnDestroy {
-
   favorite: string = RESET_ALL_FAVORITES
   private destroy$ = new Subject<void>();
   public items: Product[] = []
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productsService.fetchProducts()
-    .pipe(takeUntil(this.destroy$))
-    .subscribe()
     this.productsService.favoriteList
     .pipe(takeUntil(this.destroy$))
     .subscribe((data) => {
-      console.log('data', data)
       this.items = data
     })
+    this.items = this.productsService.getFavorite()
   }
   
   ngOnDestroy(): void {

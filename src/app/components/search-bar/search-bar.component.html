@@ -1,6 +1,6 @@
 <div class="search-bar__result">
     <span class="search-bar__text">
-        results found</span>
+         {{getCounterResult() >= 100 ? '' : resulTitle}}</span>
     <Nav class='search-bar__container-nav'>
         <button routerLink='/cart' class="search-bar__btn-cart button">
             <img src="../../../assets/img/cart4.svg" alt="cart logo" class="search-bar__cart-image" />

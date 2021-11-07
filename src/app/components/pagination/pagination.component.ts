@@ -28,9 +28,9 @@ export class PaginationComponent implements OnInit, OnDestroy {
     this.productsService.pageItems
     .pipe(takeUntil(this.destroy$))
     .subscribe(() => {
-      // if (this.productsService.getTotalPages() < this.productsService.getCurrentPage()) {
-      //   this.productsService.setFirstPage()
-      // }
+      if (this.productsService.getTotalPages() < this.productsService.getCurrentPage()) {
+        this.productsService.setFirstPage()
+      }
       this.arrCounter = []
       this.getArrCounter()
     })

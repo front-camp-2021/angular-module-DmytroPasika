@@ -18,12 +18,18 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   private _searchSubject: Subject<string> = new Subject()
   @Output() setValue: EventEmitter<string> = new EventEmitter()
   searchValue: string = ''
+  resulTitle: string = ''
 
   constructor(private productsService: ProductsService) {
     this._setSearchSubscription();
   }
   ngOnDestroy(): void {
     this._searchSubject.unsubscribe();
+  }
+
+  getCounterResult(): number {
+    this.resulTitle = `${this.productsService.getCounterResult()} results found`
+    return this.productsService.getCounterResult()
   }
 
   ngOnInit(): void {

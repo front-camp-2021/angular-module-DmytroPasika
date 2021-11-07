@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/shared/products.service';
+import { GO_HOME } from 'src/helperFn/btn.helper';
 
 @Component({
   selector: 'app-big-button',
@@ -8,7 +9,7 @@ import { ProductsService } from 'src/app/shared/products.service';
 })
 export class BigButtonComponent implements OnInit {
   @Input() title: string = ''
-
+  home: string = GO_HOME
   constructor(private productService: ProductsService) { 
   }
   

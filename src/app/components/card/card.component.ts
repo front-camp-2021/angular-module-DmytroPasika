@@ -4,8 +4,6 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { ProductsService } from 'src/app/shared/products.service';
 import { Product } from 'src/domain';
 
@@ -17,9 +15,6 @@ import { Product } from 'src/domain';
 })
 
 export class CardComponent implements OnInit, OnDestroy {
-  private destroy$ = new Subject<void>();
-  public items: Product[] = []
-
   id: string = ''
   images: Array<[]> = []
   title: string = ''
@@ -29,14 +24,33 @@ export class CardComponent implements OnInit, OnDestroy {
   brand: string = ''
 
   @Input() item: any
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService) {  }
   ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
+
   }
 
   setFavorite(): void {
-    this.productsService.setFavoriteList(this.id, this.items)
+    if(!this.productsService.isFavorite(this.id)) {
+      this.productsService.setFavoriteList(this.id)
+    } else {
+      this.productsService.unSetFavoriteList(this.id)
+    }
+  }
+
+  setCart(): void {
+    if(!this.productsService.isInCart(this.id)) {
+      this.productsService.setCartList(this.id)
+    } else {
+      this.productsService.unSetCartList(this.id)
+    }
+  }
+
+  isFavorite(id: string): boolean {
+    return this.productsService.isFavorite(id)
+  }
+
+  isInCart(id: string): boolean {
+    return this.productsService.isInCart(id)
   }
 
   ngOnInit(): void {
@@ -47,13 +61,6 @@ export class CardComponent implements OnInit, OnDestroy {
     this.price = this.item['price']
     this.category = this.item['category']
     this.brand = this.item['brand']
-
-    this.productsService.favoriteList
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        console.log(data)
-        this.items = data
-      })
   }
 }
 

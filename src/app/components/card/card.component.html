@@ -29,14 +29,17 @@
       <button class='card__wishlist-btn button' name="wishlist" (click)='setFavorite()'>
         <div class="card__container-btn" >
           <img class="card__heart" src="../../../assets/img/Path.svg" alt='Like' />
-          <div class="card__text-btn" ref={refFavorite}>WISHLIST</div>
+          <div *ngIf='!isFavorite(id)' class="card__text-btn" ref={refFavorite}>WISHLIST</div>
         </div>
       </button>
-      <button class='card__add-btn button' name="addToCart">
-        <div class="card__container-btn">
+      <button class='card__add-btn button' name="addToCart" (click)='setCart()'>
+        <div *ngIf="!isInCart(id)" class="card__container-btn">
           <img class='card__add-to-cart' src="../../../assets/img/shopping-bag.svg" alt="Shop" 
           ref={refCartImg} />
           <div class="card__text-btn" ref={refCart}>ADD TO CART</div>
+        </div>
+        <div *ngIf="isInCart(id)" class="card__container-btn">
+          <div class="card__text-btn" ref={refCart}>REMOVE FROM CART</div>
         </div>
       </button>
     </div>

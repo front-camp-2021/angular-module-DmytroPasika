@@ -27,8 +27,9 @@ export interface ActiveFiltersSchemas {
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
-  public pageItems: Subject<Product[]> = new Subject
   private products: Product[] = [];
+  private favorite: Product[] = [];
+  private cart: Product[] = [];
   private filteredProduct: Product[] = [];
   private currentPage: number = 1;
   private totalPages: number = 10;
@@ -44,6 +45,7 @@ export class ProductsService {
     },
     search: ''
   };
+  public pageItems: Subject<Product[]> = new Subject
   public favoriteList: Subject<Product[]> = new Subject;
   public cartList: Subject<Product[]> = new Subject;
 
@@ -91,6 +93,10 @@ export class ProductsService {
 
   getTotalPages(): number {
     return this.totalPages
+  }
+
+  getCounterResult(): number {
+    return this.filteredProduct.length
   }
 
   getFilteredArray(): Product[] {
@@ -193,13 +199,52 @@ export class ProductsService {
       }))
   }
 
-  setFavoriteList(id: string, favoritesArr: any): void {
-    const item = this.products.find(i => i.id === id)
-    this.favoriteList.next([...favoritesArr, item])
+  getFavorite(): Product[] {
+    return this.favorite
   }
 
-  // unSetFavoriteList(id: string, favoritesArr: ): void {
-  //   const item = favoritesArr.filter(i => i.id !== id)
-  //   this.favoriteList.next([...item])
-  // }
+  getCart(): Product[] {
+    return this.cart
+  }
+
+  setFavoriteList(id: string): void {
+    const item = this.products.find(i => i.id === id)
+    if (item !== undefined) {
+      this.favorite.push(item)
+      this.favoriteList.next(this.favorite)
+    }
+  }
+
+  unSetFavoriteList(id: string): void {
+    this.favorite = this.favorite.filter(i => i.id !== id)
+    this.favoriteList.next(this.favorite)
+  }
+
+  setCartList(id: string): void {
+    const item = this.products.find(i => i.id === id)
+    if (item !== undefined) {
+      this.cart.push(item)
+      this.cartList.next(this.favorite)
+    }
+  }
+
+  unSetCartList(id: string): void {
+    this.cart = this.cart.filter(i => i.id !== id)
+    this.cartList.next(this.cart)
+  }
+
+  isFavorite(id: string): boolean {
+    return this.favorite.some(i => i.id === id)
+  }
+
+  isInCart(id: string): boolean {
+    return this.cart.some(i => i.id === id)
+  }
+
+  setFirstPage(): void {
+    setTimeout(() => {
+      this.currentPage = 1
+      this.page()
+    }, 10)
+  }
 }
