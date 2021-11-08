@@ -1,1 +1,38 @@
-<p>item-page works!</p>
+<app-header></app-header>
+<div class="item" id={{item.id}} data-element="body">
+    <div class="card__content">
+        <div class='item__image-container-all'>
+            <div class="card__image-container">
+                <img class='item__image' src={{item.images[0]}} alt="Product" />
+            </div>
+            <div class="card__image-container">
+                <img class='item__image' src={{item.images[1]}} alt="Product" />
+            </div>
+        </div>
+        <div class="card__description">
+            <div class='card__price-and-score'>
+                <div class='card__score'>
+                    <button name='scoreButton' class="card__score-button button">
+                        <div class="card__container-btn">
+                            <span class="card__score-text">
+                                {{item.rating}}
+                            </span>
+                            <img src="../../../assets/img/star.svg" alt="score" class='card__score-image-btn' />
+                        </div>
+                    </button>
+                </div>
+                <div class="card__price">
+                    ₴{{item.price}}
+                </div>
+            </div>
+            <div class='card__description-text'>
+                    <span class="item__header">{{item.title}}</span>
+            </div>
+        </div>
+    </div>
+        <nav>
+            <button class='item__btn-home button' routerLink='/'>
+                        GO TO MAIN PAGE
+            </button>
+        </nav>
+</div>

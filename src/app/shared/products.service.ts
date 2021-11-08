@@ -247,4 +247,8 @@ export class ProductsService {
       this.page()
     }, 10)
   }
+
+  getProducts():Product[] {
+    return this.products
+  }
 }

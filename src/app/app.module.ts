@@ -31,6 +31,8 @@ const appRoutes: Routes = [
   {path: 'card', component: CardComponent},
   {path: 'cart', component: CartComponent},
   {path: 'favorite', component: FavoriteComponent},
+  {path: 'item/:id', component: ItemPageComponent},
+  {path: 'not-found', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent},
 ]
 
