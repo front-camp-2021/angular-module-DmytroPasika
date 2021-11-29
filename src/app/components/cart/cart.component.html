@@ -1,0 +1,12 @@
+<app-header></app-header>
+<nav class='nav'>
+    <button routerLink='/' class="button nav__button">GO HOME</button>
+</nav>
+<div class='cart__container'>
+<app-card 
+*ngFor='let item of items; let i = index'
+[item]='item'
+>
+</app-card>
+</div>
+<app-big-button [title]='cart'></app-big-button>

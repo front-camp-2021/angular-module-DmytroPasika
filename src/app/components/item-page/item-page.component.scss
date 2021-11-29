@@ -1,0 +1,80 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/breakpoints.scss';
+@import '../../../assets/styles/ref.scss';
+@import '../../../assets/styles/buttons.scss';
+
+
+.item {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__actions {
+        margin: 32px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 1000px;
+    }
+    &__header {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    &__btn-home {
+        width: 100%;
+        padding: 14px 14px;
+        margin-top: 14px;
+        color: map-get($colors, white);
+        background-color: map-get($colors, main-color);
+        border-radius: 8px;
+    }
+
+    &__image-container-all {
+        display: flex;
+        justify-content: space-around;
+        align-content: space-around;
+    }
+
+    &__image {
+        max-width: 600px;
+    }
+
+    @media (max-width: map-get($breakpoints, lg)) {
+        &__image {
+            max-width: 360px;
+        }
+        }
+    
+    @media (max-width: map-get($breakpoints, md)) {
+        &__image {
+            max-width: 320px;
+        }
+        &__image-container-all {
+            flex-direction: column;
+        }
+    }
+    
+    @media (max-width: map-get($breakpoints, sm)) {
+        &__image {
+            max-width: 250px;
+        }
+        &__image-container-all {
+            flex-direction: column;
+        }
+    }
+}
+
+.card {
+    &__price-and-score {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__score-button {
+        background-color: map-get($colors, main-color);
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,22 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/buttons.scss';
+
+:host {
+    @include flex-btw();
+    align-items: center;
+    padding-bottom: 16px;
+    background-color: map-get($colors , background-color);
+}
+
+.filter-container {
+      &__text {
+        font-size: 18px;
+      }
+      &__btn {
+        @include box-shadow();
+        width: 45px;
+        height: 40px;
+        background: map-get($colors, white );
+      }
+    }

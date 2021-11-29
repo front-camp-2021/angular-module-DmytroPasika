@@ -1,0 +1,24 @@
+@import '../../../assets/styles/buttons.scss';
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixin.scss';
+@import '../../../assets/styles/breakpoints.scss';
+
+.favorite-cards__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    &__button {
+        padding: 10px 10px;
+        border-radius: 8px;
+        color: map-get($colors, black);
+    }
+    @media (max-width: map-get($breakpoints, md)) {
+       &__button {
+           width: 100%;
+       }
+    }
+}
